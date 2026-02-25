@@ -1,0 +1,11 @@
+node_modules/
+artifacts/
+cache/
+coverage/
+typechain-types/
+.env
+frontend/.next/
+frontend/node_modules/
+.gitrepo/
+hs_err_pid*.log
+replay_pid*.log

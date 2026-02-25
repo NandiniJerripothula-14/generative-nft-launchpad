@@ -1,0 +1,13 @@
+node_modules
+frontend/node_modules
+frontend/.next
+artifacts
+cache
+.git
+.gitignore
+*.log
+replay_*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+coverage

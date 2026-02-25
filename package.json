@@ -1,0 +1,26 @@
+{
+  "name": "generative-nft-launchpad",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "node": "hardhat node --hostname 0.0.0.0",
+    "deploy:localhost": "hardhat run scripts/deploy.js --network localhost",
+    "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia",
+    "generate:merkle": "node scripts/generate-merkle.js",
+    "upload:ipfs": "node scripts/upload-ipfs.js"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.1.0",
+    "axios": "^1.7.7",
+    "form-data": "^4.0.1",
+    "keccak256": "^1.0.6",
+    "merkletreejs": "^0.4.1"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "dotenv": "^16.4.5",
+    "hardhat": "^2.22.16"
+  }
+}

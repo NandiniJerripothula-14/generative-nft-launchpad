@@ -1,0 +1,62 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "docker-up-build",
+			"type": "shell",
+			"command": "docker",
+			"args": [
+				"compose",
+				"up",
+				"--build",
+				"-d"
+			]
+		},
+		{
+			"label": "tmp-docker-up-build",
+			"type": "shell",
+			"command": "docker",
+			"args": [
+				"compose",
+				"up",
+				"--build",
+				"-d"
+			]
+		},
+		{
+			"label": "tmp-docker-ps",
+			"type": "shell",
+			"command": "docker",
+			"args": [
+				"compose",
+				"ps"
+			]
+		},
+		{
+			"label": "tmp-curl-8545",
+			"type": "shell",
+			"command": "curl",
+			"args": [
+				"http://localhost:8545"
+			]
+		},
+		{
+			"label": "tmp-curl-3000",
+			"type": "shell",
+			"command": "curl",
+			"args": [
+				"http://localhost:3000"
+			]
+		},
+		{
+			"label": "tmp-single-echo",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"echo",
+				"TASK_OK"
+			]
+		}
+	]
+}

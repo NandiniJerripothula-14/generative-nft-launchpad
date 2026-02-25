@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  hardhat-node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8545:8545"
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl -s -X POST -H 'Content-Type: application/json' --data '{\"jsonrpc\":\"2.0\",\"method\":\"web3_clientVersion\",\"params\":[],\"id\":1}' http://localhost:8545 >/dev/null"
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_CONTRACT_ADDRESS=${NEXT_PUBLIC_CONTRACT_ADDRESS}
+      - NEXT_PUBLIC_RPC_URL=http://hardhat-node:8545
+    depends_on:
+      hardhat-node:
+        condition: service_healthy
